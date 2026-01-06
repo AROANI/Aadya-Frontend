@@ -4,9 +4,8 @@ const API_URL = 'http://localhost:3001';
 
 export const getStudent = async () => {
   const response = await axios.get(`${API_URL}/responses/user`);
-  console.log("Student Data:", response.data);
   // No checking for .data.data anymore. The backend is raw now.
-  return response.data; 
+  return response.data;
 };
 
 export const getQuestion = async () => {
@@ -20,5 +19,11 @@ export const submitResponse = async (childId: string, questionId: string, option
     questionId,
     optionId,
   });
+  return response.data;
+};
+
+// --- NEW: Get Scores for the Chart ---
+export const getScores = async (childId: string) => {
+  const response = await axios.get(`${API_URL}/responses/score/${childId}`);
   return response.data;
 };
