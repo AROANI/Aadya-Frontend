@@ -1,69 +1,63 @@
-/* src/App.css */
-.container {
-  padding: 40px;
-  font-family: 'Arial', sans-serif;
-  text-align: center;
-}
+/* --- Global Layout --- */
+body { margin: 0; background-color: #1a1a1a; color: #ffffff; font-family: sans-serif; }
+.app-container { max-width: 900px; margin: 0 auto; padding: 2rem; text-align: center; }
 
-.question-card {
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  max-width: 500px;
-  margin: 0 auto;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* --- Containers --- */
+.login-container, .card, .chart-box, .game-box {
+  background-color: #2a2a2a; padding: 2rem; border-radius: 16px; border: 1px solid #333; margin-top: 2rem;
 }
+.title { font-size: 2rem; color: #e0e0e0; }
 
-.question-text {
-  color: #333;
-  margin-bottom: 20px;
-}
+/* --- Buttons & Inputs --- */
+.login-input { padding: 12px; border-radius: 8px; border: 1px solid #444; background: #333; color: white; margin-right: 10px; }
+.primary-btn { padding: 12px 24px; background: #646cff; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; }
+.primary-btn:hover { background: #535bf2; }
+.audio-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; margin-left: 10px; }
 
-.options-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
-}
+/* --- Standard Options --- */
+.option-btn { width: 100%; padding: 15px; margin-top: 10px; background: #3a3a3a; color: #fff; border: 1px solid #444; border-radius: 8px; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+.option-btn:hover { background: #646cff; }
 
-.option-button {
-  padding: 15px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.2s;
-}
+/* --- 🧩 Sequence Game --- */
+.sequence-container { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.seq-card { background: #333; padding: 15px; border-radius: 8px; border: 2px solid #555; cursor: pointer; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem; transition: transform 0.2s; }
+.seq-card:hover { border-color: #646cff; transform: scale(1.05); }
+.seq-selected { border-color: #10b981; background: #064e3b; }
+.seq-check { margin-left: 5px; } 
+.seq-result-text { margin-top: 20px; font-weight: bold; color: #10b981; } 
 
-.option-button:hover {
-  background-color: #0056b3;
-}
+/* --- 😡 Emotion Game --- */
+.emotion-img { width: 150px; height: 150px; border-radius: 50%; background: #444; margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+.emoji-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+.emoji-btn { font-size: 2rem; padding: 10px; background: #333; border: 1px solid #444; border-radius: 12px; cursor: pointer; }
+.emoji-btn:hover { background: #646cff; }
+.emoji-label { font-size: 0.8rem; display: block; margin-top: 5px; color: #aaa; } 
 
-.loading, .error {
-  text-align: center;
-  margin-top: 50px;
-  color: #555;
-}
+/* --- ⚡ Motor Game --- */
+.motor-area { position: relative; height: 300px; background-color: #111; border: 2px dashed #444; border-radius: 12px; overflow: hidden; margin-top: 20px; cursor: crosshair; }
+.target-ball { position: absolute; width: 50px; height: 50px; border-radius: 50%; background-color: #ff3e00; cursor: pointer; box-shadow: 0 0 15px #ff3e00; transition: top 0.1s, left 0.1s; }
 
-/* Add these to the bottom of App.css */
-.chart-container {
-  width: 100%;
-  height: 400px;
-  margin-top: 20px;
-}
+/* --- Chart Styles --- */
+.chart-container { display: flex; height: 400px; position: relative; padding-left: 40px; border-left: 2px solid #555; border-bottom: 2px solid #555; }
+.bars-area { flex: 1; display: flex; align-items: flex-end; justify-content: space-around; height: 100%; padding-bottom: 10px; }
+.bar-column { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; margin: 0 2px; position: relative; }
+.bar { width: 100%; border-radius: 5px 5px 0 0; transition: height 0.5s ease; min-height: 10px !important; }
+.bar-orange { background-color: #FF9800; }
+.bar-green { background-color: #4CAF50; }
+.tooltip { position: absolute; top: -35px; background: #fff; color: #000; padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.8rem; opacity: 0; pointer-events: none; white-space: nowrap; z-index: 10; }
+.bar-column:hover .tooltip { opacity: 1; }
+.x-label { margin-top: 8px; font-size: 0.65rem; color: #aeb9e1; text-align: center; word-wrap: break-word; line-height: 1.2; }
 
-.back-button {
-  margin-top: 30px;
-  background-color: #6c757d; /* Grey */
-}
+/* --- Helper Classes (NO INLINE STYLES) --- */
+/* 👇 Added gap: 10px here to fix the error */
+.login-actions { display: flex; justify-content: center; gap: 10px; } 
 
-.view-results-container {
-  margin-top: 30px;
-}
-
-.view-results-button {
-  background-color: #28a745; /* Green */
-}
+.view-btn { margin-top: 20px; background-color: #10b981; }
+.view-btn:hover { background-color: #059669; }
+.back-btn { margin-top: 20px; padding: 10px 20px; background: #6b7280; color: white; border: none; border-radius: 8px; cursor: pointer; }
+.skip-btn { font-size: 0.8rem; margin-top: 30px; background-color: #444; } 
+.question-header { display: flex; align-items: center; justify-content: center; margin-bottom: 20px; } 
+.instruction-text { color: #aaa; margin-bottom: 15px; font-style: italic; }
+.no-data-msg { margin: auto; }
+.footer { text-align: center; }
+.pointer-icon { font-size: 1.2rem; }
